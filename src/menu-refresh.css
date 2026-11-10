@@ -1,0 +1,186 @@
+/* CSSD Care navigation refresh: clearer hierarchy, stronger contrast, and a complete mobile menu. */
+:root {
+  --nav-ink: #eaf5f7;
+  --nav-muted: #a9c1c6;
+  --nav-surface: #102f3a;
+  --nav-active: #167f7a;
+}
+
+.app-shell {
+  max-width: 1720px;
+  padding: 20px;
+  gap: 22px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  width: 292px;
+  min-width: 292px;
+  height: calc(100vh - 40px);
+  min-height: 620px;
+  padding: 24px 18px 18px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(35,169,160,.2), transparent 38%),
+    linear-gradient(165deg, #123943 0%, #0c2933 72%, #102f3a 100%);
+  box-shadow: 0 24px 60px rgba(13,47,53,.18);
+}
+
+.brand {
+  gap: 13px;
+  margin-bottom: 20px;
+  padding: 4px 5px 20px;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(25,173,163,.25);
+}
+
+.brand b { letter-spacing: -.025em; }
+.brand small { font-size: .62rem; }
+
+.nav-menu {
+  gap: 7px;
+}
+
+.nav-menu::before {
+  content: "MENU OPERASIONAL";
+  padding: 5px 12px 8px;
+  color: #86a7ad;
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.nav-item {
+  position: relative;
+  min-height: 48px;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  color: var(--nav-muted);
+  font-size: .9rem;
+  font-weight: 550;
+  gap: 12px;
+}
+
+.nav-item > span:first-child {
+  display: grid;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.07);
+  color: #b7d3d5;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.07);
+  color: white;
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  border-color: rgba(89,220,203,.2);
+  background: linear-gradient(100deg, rgba(28,139,132,.36), rgba(28,139,132,.12));
+  color: #fff;
+  box-shadow: inset 3px 0 #48c8bb;
+}
+
+.nav-item.active > span:first-child {
+  background: #188780;
+  color: white;
+}
+
+.sidebar-note {
+  gap: 6px;
+  padding: 14px;
+  border-color: rgba(255,255,255,.1);
+  background: rgba(255,255,255,.055);
+}
+
+.sidebar-note .online-dot { margin-bottom: 3px; }
+
+.main-panel {
+  padding: 24px 26px 84px;
+}
+
+.topbar {
+  margin-bottom: 22px;
+  padding: 4px 2px 15px;
+  border-bottom: 1px solid rgba(24,70,75,.08);
+}
+
+.topbar h1 { letter-spacing: -.045em; }
+
+.stat-card::before { background: var(--primary); }
+
+@media (max-width: 820px) {
+  .app-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 12px 24px;
+  }
+
+  /* Keep all seven destinations visible and tappable on phones, not only four. */
+  .sidebar {
+    position: static;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .brand {
+    margin-bottom: 12px;
+    padding: 2px 3px 12px;
+  }
+
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .nav-menu::before {
+    grid-column: 1 / -1;
+    padding: 2px 5px 5px;
+  }
+
+  .nav-item {
+    min-width: 0;
+    min-height: 44px;
+    padding: 7px;
+    gap: 7px;
+    font-size: .77rem;
+    line-height: 1.15;
+  }
+
+  .nav-item > span:first-child {
+    flex-basis: 27px;
+    width: 27px;
+    height: 27px;
+  }
+
+  .sidebar-note { display: none; }
+  .main-panel { padding: 16px 14px 24px; }
+  .mobile-nav { display: none !important; }
+}
+
+@media (max-width: 420px) {
+  .sidebar { padding: 11px; }
+  .nav-item { font-size: .72rem; }
+  .nav-item > span:first-child { flex-basis: 24px; width: 24px; height: 24px; }
+}
