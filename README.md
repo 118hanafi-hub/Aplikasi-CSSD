@@ -2,16 +2,15 @@
 
 Prototype aplikasi web responsif untuk membantu merancang alur kerja CSSD di HP dan komputer.
 
-## Yang tersedia pada versi prototype
+## Yang tersedia
 
-- Dashboard dengan ringkasan operasional dan akses cepat.
+- Dashboard dan navigasi responsif.
 - Pencatatan penerimaan/pengembalian instrumen kotor.
 - Contoh data inventaris set dan daftar isi/jumlah instrumen.
-- Pembuatan muatan sterilisasi serta QR sungguhan untuk label kemasan sebelum Start.
-- Tampilan detail label berisi isi kemasan, tanggal sterilisasi/kedaluwarsa, metode, mesin, lot/siklus, petugas, dan status.
-- Pencatatan log suhu dan jadwal pemeliharaan.
-- Ringkasan laporan prototype.
-- Data formulir disimpan pada localStorage browser/perangkat yang digunakan.
+- Pembuatan muatan sterilisasi dan QR label sebelum Start.
+- Detail label: isi kemasan, tanggal, metode, mesin, lot/siklus, petugas, dan status.
+- Log suhu, jadwal pemeliharaan, dan ringkasan prototype.
+- Supabase Auth login integration (optional configuration).
 
 ## Jalankan untuk pengembangan
 
@@ -20,15 +19,15 @@ npm install
 npm run dev
 ```
 
-Buka URL yang ditampilkan Vite. Untuk akses melalui HP di jaringan yang sama, gunakan alamat Network yang ditampilkan terminal.
+Buka URL yang ditampilkan Vite. Untuk akses melalui HP pada jaringan yang sama, gunakan alamat Network yang ditampilkan terminal.
 
-## Status backend
+## Login dan database
 
-Skema backend awal untuk Supabase tersedia di `supabase/migrations/`. Panduan setup ada di `supabase/README.md`. Frontend belum terhubung ke backend, jadi data belum tersinkron antarperangkat dan akun.
+Skema shared database awal ada di `supabase/migrations/`; setup login ada di `supabase/LOGIN_SETUP.md`. Login Supabase dapat diaktifkan dengan `.env.local` dari `.env.example`. **Walaupun login aktif, formulir operasional saat ini masih menyimpan data di browser lokal dan belum tersinkron ke database.** Backend CRUD dan role-based UI perlu diselesaikan sebelum uji operasional.
 
-## Batasan penting
+## Batasan dan keselamatan
 
-Ini adalah prototype frontend. Data tersimpan hanya di browser lokal dan tidak dibagikan antarperangkat/pengguna. Belum ada autentikasi, database server yang terhubung, kontrol akses aplikasi, backup, atau audit trail operasional. QR label membuka rekaman pada aplikasi yang sama; aplikasi perlu di-host dan terhubung backend agar dapat dipindai dari perangkat lain. Gunakan data simulasi saja, bukan data pasien atau data sensitif. SOP, validasi siklus, masa berlaku, dan keputusan pelepasan alat tetap mengikuti kebijakan fasilitas.
+Jangan masukkan data pasien atau data sensitif. Prototype ini belum layak untuk pencatatan operasional resmi: belum ada backend CRUD terhubung, sinkronisasi antarperangkat, backup, alur approval, atau validasi klinis/regulasi. SOP, parameter siklus, masa berlaku, dan keputusan pelepasan alat wajib mengikuti kebijakan fasilitas dan ditinjau penanggung jawab.
 
 ## Build
 
