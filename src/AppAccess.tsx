@@ -1,7 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
+import App from './App';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-
-export const supabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
-export const supabase = supabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey) : null;
+/**
+ * The demo does not require an account backend. Keeping this wrapper lets the
+ * existing entry point render the application without Supabase credentials.
+ */
+export default function AppAccess() {
+  return <App />;
+}
