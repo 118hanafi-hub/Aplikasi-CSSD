@@ -1,29 +1,13 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AppShell } from './components/AppShell';
-import { DashboardPage } from './pages/DashboardPage';
-import { DirtyReturnsPage } from './pages/DirtyReturnsPage';
-import { InventoryPage } from './pages/InventoryPage';
-import { SterilizationPage } from './pages/SterilizationPage';
-import { TemperaturePage } from './pages/TemperaturePage';
-import { MaintenancePage } from './pages/MaintenancePage';
-import { ReportsPage } from './pages/ReportsPage';
-import { LabelDetailPage } from './pages/LabelDetailPage';
+import type { JSX } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import App from './App';
 
-export default function AppRouter() {
+export default function AppRouter(): JSX.Element {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-        <Route element={<AppShell />}>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/penerimaan-alat-kotor" element={<DirtyReturnsPage />} />
-          <Route path="/inventaris" element={<InventoryPage />} />
-          <Route path="/sterilisasi" element={<SterilizationPage />} />
-          <Route path="/log-suhu" element={<TemperaturePage />} />
-          <Route path="/pemeliharaan" element={<MaintenancePage />} />
-          <Route path="/laporan" element={<ReportsPage />} />
-          <Route path="/label/:id" element={<LabelDetailPage />} />
-        </Route>
+        <Route path="*" element={<App />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
