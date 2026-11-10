@@ -2,7 +2,7 @@
 
 Prototype aplikasi web responsif untuk membantu merancang alur kerja CSSD di HP dan komputer.
 
-## Yang tersedia
+## Fitur prototype
 
 - Dashboard dan navigasi responsif.
 - Pencatatan penerimaan/pengembalian instrumen kotor.
@@ -10,24 +10,22 @@ Prototype aplikasi web responsif untuk membantu merancang alur kerja CSSD di HP 
 - Pembuatan muatan sterilisasi dan QR label sebelum Start.
 - Detail label: isi kemasan, tanggal, metode, mesin, lot/siklus, petugas, dan status.
 - Log suhu, jadwal pemeliharaan, dan ringkasan prototype.
-- Supabase Auth login integration (optional configuration).
+- Integrasi login Supabase opsional (memerlukan konfigurasi).
 
-## Jalankan untuk pengembangan
+## Coba lokal
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka URL yang ditampilkan Vite. Untuk akses melalui HP pada jaringan yang sama, gunakan alamat Network yang ditampilkan terminal.
+## Demo online gratis
 
-## Login dan database
+Panduan deploy dari repo privat ke Vercel ada di [`DEPLOY_VERCEL.md`](DEPLOY_VERCEL.md). Konfigurasi build Vercel ada di `vercel.json`. Saya tidak dapat menghubungkan akun Vercel Anda atau menerbitkan deployment tanpa otorisasi pada akun hosting tersebut.
 
-Skema shared database awal ada di `supabase/migrations/`; setup login ada di `supabase/LOGIN_SETUP.md`. Login Supabase dapat diaktifkan dengan `.env.local` dari `.env.example`. **Walaupun login aktif, formulir operasional saat ini masih menyimpan data di browser lokal dan belum tersinkron ke database.** Backend CRUD dan role-based UI perlu diselesaikan sebelum uji operasional.
+## Status database dan keselamatan
 
-## Batasan dan keselamatan
-
-Jangan masukkan data pasien atau data sensitif. Prototype ini belum layak untuk pencatatan operasional resmi: belum ada backend CRUD terhubung, sinkronisasi antarperangkat, backup, alur approval, atau validasi klinis/regulasi. SOP, parameter siklus, masa berlaku, dan keputusan pelepasan alat wajib mengikuti kebijakan fasilitas dan ditinjau penanggung jawab.
+Skema database awal ada di `supabase/migrations/`; panduan login ada di `supabase/LOGIN_SETUP.md`. Frontend saat ini belum melakukan CRUD ke database bersama: data operasional prototype disimpan lokal di browser. Jangan gunakan untuk catatan CSSD resmi, data pasien, atau informasi sensitif. SOP, validasi siklus, masa berlaku, serta keputusan pelepasan alat wajib mengikuti kebijakan fasilitas dan ditinjau penanggung jawab.
 
 ## Build
 
