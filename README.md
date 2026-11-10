@@ -22,9 +22,13 @@ npm run dev
 
 Buka URL yang ditampilkan Vite. Untuk akses melalui HP di jaringan yang sama, gunakan alamat Network yang ditampilkan terminal.
 
+## Status backend
+
+Skema backend awal untuk Supabase tersedia di `supabase/migrations/`. Panduan setup ada di `supabase/README.md`. Frontend belum terhubung ke backend, jadi data belum tersinkron antarperangkat dan akun.
+
 ## Batasan penting
 
-Ini adalah prototype frontend. Data tersimpan hanya di browser lokal dan tidak dibagikan antarperangkat/pengguna. Belum ada autentikasi, database server, sinkronisasi 50–60 pengguna, kontrol akses, backup, atau audit trail yang memadai untuk operasional. QR label membuka rekaman pada aplikasi yang sama; aplikasi perlu di-host dan terhubung backend agar dapat dipindai dari perangkat lain. Gunakan data simulasi saja, bukan data pasien atau data sensitif. SOP, validasi siklus, masa berlaku, dan keputusan pelepasan alat tetap mengikuti kebijakan fasilitas.
+Ini adalah prototype frontend. Data tersimpan hanya di browser lokal dan tidak dibagikan antarperangkat/pengguna. Belum ada autentikasi, database server yang terhubung, kontrol akses aplikasi, backup, atau audit trail operasional. QR label membuka rekaman pada aplikasi yang sama; aplikasi perlu di-host dan terhubung backend agar dapat dipindai dari perangkat lain. Gunakan data simulasi saja, bukan data pasien atau data sensitif. SOP, validasi siklus, masa berlaku, dan keputusan pelepasan alat tetap mengikuti kebijakan fasilitas.
 
 ## Build
 
